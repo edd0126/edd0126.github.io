@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketing Investment Analysis: LTV, CAC & ROMI · Eduardo Schlufter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="../../" class="nav-logo">ES — 2025</a>
+    <ul class="nav-links">
+      <li><a href="../../#about">About</a></li>
+      <li><a href="../../#credentials">Credentials</a></li>
+      <li><a href="../../#projects">Projects</a></li>
+      <li><a href="../../#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── PAGE HERO ── -->
+  <div class="page-hero">
+    <a href="../../#projects" class="page-back">← Back to Projects</a>
+    <h1 class="page-title">Marketing Investment Analysis:<br>LTV, CAC & ROMI by Acquisition Source</h1>
+    <p class="page-sub">A 18-month retrospective analysis of user acquisition efficiency for a ticket sales platform — revealing critical misalignment between where budget was going and where value was actually being generated.</p>
+    <div class="page-meta">
+      <span class="tech-tag">Python</span>
+      <span class="tech-tag">Pandas</span>
+      <span class="tech-tag">Matplotlib</span>
+      <span class="tech-tag">Seaborn</span>
+      <span class="tech-tag">LTV Modeling</span>
+      <span class="tech-tag">CAC Analysis</span>
+      <span class="tech-tag">ROMI</span>
+      <span class="tech-tag">Cohort Analysis</span>
+    </div>
+    <div class="page-links">
+      <a href="https://github.com/edd0126/marketing_investment_analysis_ltv_romi" target="_blank" class="btn btn-outline">View on GitHub →</a>
+    </div>
+  </div>
+
+  <div class="proj-body">
+
+    <!-- ── OVERVIEW ── -->
+    <div class="proj-section">
+      <div class="section-label">01 — Problem</div>
+      <h2 class="proj-h2">Context & Objective</h2>
+      <p class="proj-p">A ticket sales platform had been investing in multiple user acquisition channels over 18 months without a clear picture of which ones were actually delivering value. Marketing budget was being allocated largely by intuition — but how did actual Customer Acquisition Cost (CAC), Lifetime Value (LTV), and Return on Marketing Investment (ROMI) break down by source?</p>
+      <p class="proj-p">The goal of this analysis was to build a data-driven view of acquisition efficiency by source: calculate how much each channel costs to acquire a user, how much lifetime revenue those users generate, and whether any cohort achieved positive ROMI in the observed period.</p>
+
+      <div class="kpi-row">
+        <div class="kpi-box">
+          <div class="kpi-val">18 mo</div>
+          <div class="kpi-lbl">Data Range</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-val">+131%</div>
+          <div class="kpi-lbl">Source 3 overspend vs next channel</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-val">0</div>
+          <div class="kpi-lbl">Cohorts with positive ROMI</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── METHODOLOGY ── -->
+    <div class="proj-section">
+      <div class="section-label">02 — Methodology</div>
+      <h2 class="proj-h2">From Raw Data to Investment Decisions</h2>
+
+      <h3 class="proj-h3">Data Sources</h3>
+      <p class="proj-p">The analysis integrated three datasets: user acquisition records (user ID, acquisition date, acquisition source), order history (order values and timestamps per user), and marketing spend logs (daily spend by acquisition source).</p>
+
+      <h3 class="proj-h3" style="margin-top: 28px;">Cohort Construction</h3>
+      <p class="proj-p">Users were grouped into acquisition cohorts by month and source. For each cohort, the analysis tracked cumulative revenue over time — building LTV curves that show how much value a cohort generates in the weeks and months following acquisition.</p>
+
+      <h3 class="proj-h3" style="margin-top: 28px;">Metric Definitions</h3>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 16px;">
+        <div style="background: var(--bg2); padding: 24px;">
+          <div class="proj-h3" style="margin-bottom: 10px;">CAC</div>
+          <p style="font-size: 13px; color: var(--text-dim); line-height: 1.7;">Total spend on a channel in a given period divided by the number of new users acquired through it. A low CAC means acquiring users is cheap — but only meaningful when paired with LTV.</p>
+        </div>
+        <div style="background: var(--bg2); padding: 24px;">
+          <div class="proj-h3" style="margin-bottom: 10px;">LTV</div>
+          <p style="font-size: 13px; color: var(--text-dim); line-height: 1.7;">The total revenue generated by a cohort from acquisition date through the end of the observation window. Compared against CAC to evaluate whether a source is generating more value than it costs.</p>
+        </div>
+        <div style="background: var(--bg2); padding: 24px;">
+          <div class="proj-h3" style="margin-bottom: 10px;">ROMI</div>
+          <p style="font-size: 13px; color: var(--text-dim); line-height: 1.7;">Return on Marketing Investment: (Revenue − Marketing Spend) / Marketing Spend. A positive ROMI means marketing is generating more revenue than it costs. A negative ROMI means the channel is unprofitable.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── KEY FINDINGS ── -->
+    <div class="proj-section">
+      <div class="section-label">03 — Key Findings</div>
+      <h2 class="proj-h2">Where the Budget Was Going Wrong</h2>
+
+      <h3 class="proj-h3">Source 3: The Overfunded Underperformer</h3>
+      <p class="proj-p">The most significant finding was the budget allocation for Source 3. Despite receiving <strong style="color:var(--acc)">131% more spend</strong> than the next highest-funded acquisition channel, Source 3 had one of the highest CAC values across all sources — meaning it was both the most expensive channel to acquire from and the one consuming the most budget.</p>
+      <p class="proj-p">This combination represents a compounding inefficiency: not only is each acquired user expensive, but the platform is acquiring a large volume of them. The result is a channel with disproportionate cost relative to the LTV it generates.</p>
+
+      <h3 class="proj-h3" style="margin-top: 28px;">No Cohort Achieved Positive ROMI</h3>
+      <p class="proj-p">Across all acquisition sources and cohort months analyzed, no single cohort reached positive ROMI within the 18-month observation window. This suggests that the time horizon for user payback may exceed what was captured in the data — or that the platform's marketing spend structure systemically outpaces the revenue generated per acquired user.</p>
+      <p class="proj-p">This finding doesn't necessarily indicate a failing business — it points to the need for either longer LTV windows, better retention strategies to increase revenue per user, or tighter spend controls to bring CAC in line with realistic payback periods.</p>
+
+      <div style="background: var(--bg2); border: 1px solid var(--border); padding: 28px 32px; margin-top: 28px; font-family: var(--mono); font-size: 12px;">
+        <div style="color: var(--acc); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 20px;">Acquisition Source Summary (illustrative)</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; color: var(--text-muted); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; padding-bottom: 10px; border-bottom: 1px solid var(--border);">
+          <span>Source</span><span>Relative Spend</span><span>CAC</span><span>ROMI Status</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; color: var(--text-dim); padding: 10px 0; border-bottom: 1px solid var(--border);">
+          <span style="color:var(--acc)">Source 3</span><span>Highest (+131%)</span><span>Among highest</span><span style="color:#c17a5e">Negative</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; color: var(--text-dim); padding: 10px 0; border-bottom: 1px solid var(--border);">
+          <span>Other sources</span><span>Lower</span><span>Lower CAC</span><span style="color:#c17a5e">Negative</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; color: var(--text-dim); padding: 10px 0;">
+          <span>All cohorts</span><span>—</span><span>—</span><span style="color:#c17a5e">No positive ROMI</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CONCLUSION ── -->
+    <div class="proj-section">
+      <div class="section-label">04 — Conclusion</div>
+      <h2 class="proj-h2">Recommendations</h2>
+      <div class="conclusion-box">
+        <p class="conclusion-text">The data reveals a clear misalignment between budget allocation and acquisition efficiency. <strong>Source 3 is consuming a disproportionate share of marketing spend</strong> while delivering one of the poorest CAC-to-LTV ratios in the portfolio. This should be the first target for budget reallocation.</p>
+        <p class="conclusion-text" style="margin-top: 16px;">The absence of positive ROMI across all cohorts within the 18-month window is a structural signal. <strong>Budget redistribution toward lower-CAC sources</strong> — combined with strategies to extend the LTV window through user retention — is the most impactful lever available to the platform.</p>
+        <p class="conclusion-text" style="margin-top: 16px;"><strong>Recommended next steps:</strong> (1) Reduce Source 3 spend to align with its actual acquisition efficiency. (2) Extend the analysis window to 24–36 months to determine if any cohort eventually achieves payback. (3) Introduce retention campaigns targeted at the highest-CAC cohorts to increase their LTV and recover spend.</p>
+      </div>
+    </div>
+
+  </div><!-- /proj-body -->
+
+  <footer>
+    <span class="footer-txt">© <span id="yr"></span> Eduardo Schlufter</span>
+    <span class="footer-txt"><a href="../../#projects" style="color:var(--text-muted)">← Back to all projects</a></span>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A/A/B Test — Font Redesign Funnel Analysis · Eduardo Schlufter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="../../" class="nav-logo">ES — 2025</a>
+    <ul class="nav-links">
+      <li><a href="../../#about">About</a></li>
+      <li><a href="../../#credentials">Credentials</a></li>
+      <li><a href="../../#projects">Projects</a></li>
+      <li><a href="../../#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── PAGE HERO ── -->
+  <div class="page-hero">
+    <a href="../../#projects" class="page-back">← Back to Projects</a>
+    <h1 class="page-title">A/A/B Test — Font Redesign<br>Funnel Analysis</h1>
+    <p class="page-sub">Statistical validation of whether a proposed UI font redesign significantly impacted user behavior across each stage of a mobile app's purchase funnel.</p>
+    <div class="page-meta">
+      <span class="tech-tag">Python</span>
+      <span class="tech-tag">Pandas / NumPy</span>
+      <span class="tech-tag">SciPy</span>
+      <span class="tech-tag">Matplotlib</span>
+      <span class="tech-tag">Plotly</span>
+      <span class="tech-tag">A/A/B Testing</span>
+      <span class="tech-tag">Funnel Analysis</span>
+    </div>
+    <div class="page-links">
+      <a href="https://github.com/edd0126/aab-test-font-redesign-funnel-analysis" target="_blank" class="btn btn-outline">View on GitHub →</a>
+    </div>
+  </div>
+
+  <div class="proj-body">
+
+    <!-- ── OVERVIEW ── -->
+    <div class="proj-section">
+      <div class="section-label">01 — Problem</div>
+      <h2 class="proj-h2">Context & Objective</h2>
+      <p class="proj-p">A product team proposed updating the font across their mobile application, hypothesizing it would improve readability and, in turn, drive higher conversion rates through the purchase funnel. Before committing to the redesign, an A/A/B experiment was designed to rigorously evaluate the change.</p>
+      <p class="proj-p">The experiment involved three user groups: two control groups (A and A₂, with identical UI) used to validate that the testing methodology itself was sound, and one treatment group (B, with the new font). With <strong style="color:var(--acc)">7,551 total users</strong> distributed across the groups, the analysis measured conversion at five funnel stages.</p>
+
+      <div class="kpi-row">
+        <div class="kpi-box">
+          <div class="kpi-val">7,551</div>
+          <div class="kpi-lbl">Total Users</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-val">3</div>
+          <div class="kpi-lbl">Test Groups (A, A₂, B)</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-val">5</div>
+          <div class="kpi-lbl">Funnel Stages Analyzed</div>
+        </div>
+      </div>
+
+      <h3 class="proj-h3" style="margin-top: 32px;">Funnel Stages</h3>
+      <p class="proj-p">The five stages tracked were: <strong style="color:var(--text)">Main Screen → Offers Screen → Cart → Payment Successful → Tutorial</strong>. Each stage was tested independently using two-sample t-tests, with a significance level (α) set at 0.1.</p>
+    </div>
+
+    <!-- ── FUNNEL ANALYSIS ── -->
+    <div class="proj-section">
+      <div class="section-label">02 — Funnel Retention</div>
+      <h2 class="proj-h2">Where Do Users Drop Off?</h2>
+      <p class="proj-p">Before running the A/A/B comparisons, the overall funnel retention was analyzed across all users to identify the most critical drop-off points.</p>
+
+      <div class="kpi-row">
+        <div class="kpi-box">
+          <div class="kpi-val">62%</div>
+          <div class="kpi-lbl">Main → Offers retention</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-val">81%</div>
+          <div class="kpi-lbl">Offers → Cart retention</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-val">23%</div>
+          <div class="kpi-lbl">Cart → Tutorial retention</div>
+        </div>
+      </div>
+
+      <p class="proj-p">The most significant drop occurs at the <strong style="color:var(--acc)">Tutorial stage</strong>, where only 23% of users who reach the Cart proceed. This makes the Tutorial the highest-priority friction point for future optimization — independent of the font change being tested.</p>
+
+      <div class="chart-grid single">
+        <div class="chart-card">
+          <img src="../../assets/chart-funnel.png" alt="User funnel visualization across all stages" />
+          <div class="chart-cap">Fig. 1 — User distribution across funnel stages. The steep decline at the Tutorial stage (from Cart onward) is the most notable drop in the entire flow.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── STATISTICAL TESTING ── -->
+    <div class="proj-section">
+      <div class="section-label">03 — Statistical Analysis</div>
+      <h2 class="proj-h2">A/A/B Comparison by Stage</h2>
+      <p class="proj-p">Each funnel stage was independently tested for statistical differences between the three groups. The null hypothesis (H₀) in each case was that conversion rates between any two groups are equal, with the alternative (H₁) being that they differ.</p>
+
+      <h3 class="proj-h3">Hypothesis Framework</h3>
+      <p class="proj-p"><strong style="color:var(--text)">H₀:</strong> Conversion rates across groups are equal — the font change has no effect.<br>
+      <strong style="color:var(--text)">H₁:</strong> Conversion rates differ between groups — the font change had an impact.</p>
+
+      <p class="proj-p">Across all five stages and all three group comparisons (A vs A₂, A vs B, A₂ vs B), the resulting p-values were consistently well above the significance threshold of α = 0.1. In every case, <strong style="color:var(--acc)">H₀ was not rejected</strong>, indicating no statistically significant difference attributable to the font redesign.</p>
+
+      <div style="background: var(--bg2); border: 1px solid var(--border); padding: 28px 32px; margin-top: 28px; font-family: var(--mono); font-size: 12px; color: var(--text-dim);">
+        <div style="color: var(--acc); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 16px;">Sample p-values — Main Screen Stage</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+          <div><div style="color:var(--text-muted); margin-bottom: 4px;">A vs A₂</div><div style="color:var(--text)">p = 0.586</div><div style="color: #5c9e6e; font-size: 10px;">Do not reject H₀</div></div>
+          <div><div style="color:var(--text-muted); margin-bottom: 4px;">A vs B</div><div style="color:var(--text)">p = 0.763</div><div style="color: #5c9e6e; font-size: 10px;">Do not reject H₀</div></div>
+          <div><div style="color:var(--text-muted); margin-bottom: 4px;">A₂ vs B</div><div style="color:var(--text)">p = 0.398</div><div style="color: #5c9e6e; font-size: 10px;">Do not reject H₀</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CONCLUSION ── -->
+    <div class="proj-section">
+      <div class="section-label">04 — Conclusion</div>
+      <h2 class="proj-h2">Key Findings</h2>
+      <div class="conclusion-box">
+        <p class="conclusion-text">The A/A/B experiment conclusively showed that the proposed font redesign <strong>did not significantly alter user behavior</strong> at any stage of the purchase funnel. Across all five stages and all three group comparisons, the p-values remained well above the significance threshold, meaning the null hypothesis was consistently retained.</p>
+        <p class="conclusion-text" style="margin-top: 16px;">The significance level was set at α = 0.1 — had it been set lower, the outcome would remain unchanged, as none of the p-values were close to the boundary. The variability in user counts between groups was minimal, further confirming the experiment's integrity.</p>
+        <p class="conclusion-text" style="margin-top: 16px;"><strong>Business recommendation:</strong> Since the font redesign carries no measurable risk to conversion, the team can implement it for aesthetic or accessibility reasons without concern. However, to meaningfully improve conversion metrics, optimization efforts should be focused on the <strong>Tutorial stage</strong>, which exhibits the largest drop-off in the entire funnel (only 23% retention from Cart).</p>
+      </div>
+    </div>
+
+  </div><!-- /proj-body -->
+
+  <footer>
+    <span class="footer-txt">© <span id="yr"></span> Eduardo Schlufter</span>
+    <span class="footer-txt"><a href="../../#projects" style="color:var(--text-muted)">← Back to all projects</a></span>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

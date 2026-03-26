@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A/B Test & Hypothesis Prioritization — E-commerce · Eduardo Schlufter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="../../" class="nav-logo">ES — 2025</a>
+    <ul class="nav-links">
+      <li><a href="../../#about">About</a></li>
+      <li><a href="../../#credentials">Credentials</a></li>
+      <li><a href="../../#projects">Projects</a></li>
+      <li><a href="../../#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── PAGE HERO ── -->
+  <div class="page-hero">
+    <a href="../../#projects" class="page-back">← Back to Projects</a>
+    <h1 class="page-title">A/B Test & Hypothesis<br>Prioritization — E-commerce</h1>
+    <p class="page-sub">Applied ICE and RICE frameworks to rank revenue-growth hypotheses, then designed and analyzed a full A/B experiment to determine which user group drove better conversion and order performance.</p>
+    <div class="page-meta">
+      <span class="tech-tag">Python</span>
+      <span class="tech-tag">Pandas / NumPy</span>
+      <span class="tech-tag">SciPy / Statsmodels</span>
+      <span class="tech-tag">Matplotlib</span>
+      <span class="tech-tag">ICE / RICE</span>
+      <span class="tech-tag">A/B Testing</span>
+      <span class="tech-tag">Z-test</span>
+    </div>
+    <div class="page-links">
+      <a href="https://github.com/edd0126/ab-test-ecommerce-hypothesis-prioritization" target="_blank" class="btn btn-outline">View on GitHub →</a>
+    </div>
+  </div>
+
+  <div class="proj-body">
+
+    <!-- ── OVERVIEW ── -->
+    <div class="proj-section">
+      <div class="section-label">01 — Problem</div>
+      <h2 class="proj-h2">Context & Objective</h2>
+      <p class="proj-p">An e-commerce team had a backlog of potential improvements — new features, UX changes, and promotional strategies — each claiming to drive revenue growth. The challenge was deciding which ones to actually test, and in what order. After prioritization, a live A/B experiment was run to validate the impact of the highest-priority change on real users.</p>
+      <p class="proj-p">The project is structured in two distinct parts: first, a framework-driven prioritization exercise to identify where to focus testing efforts; second, a rigorous statistical analysis of the A/B experiment's results across conversion rate and average order size.</p>
+
+      <div class="kpi-row">
+        <div class="kpi-box">
+          <div class="kpi-val">2</div>
+          <div class="kpi-lbl">Prioritization Frameworks</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-val">2</div>
+          <div class="kpi-lbl">User Groups Tested</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-val">Group B</div>
+          <div class="kpi-lbl">Winning Group</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── HYPOTHESIS PRIORITIZATION ── -->
+    <div class="proj-section">
+      <div class="section-label">02 — Hypothesis Prioritization</div>
+      <h2 class="proj-h2">ICE vs RICE Scoring</h2>
+      <p class="proj-p">Two scoring frameworks were applied to a set of potential hypotheses, each offering a different perspective on prioritization:</p>
+      <p class="proj-p"><strong style="color:var(--text)">ICE (Impact · Confidence · Ease)</strong> — A simpler model that scores purely on expected outcome, team confidence, and implementation effort. It surfaces quick wins and high-confidence bets, but ignores how many users will actually be affected.</p>
+      <p class="proj-p"><strong style="color:var(--text)">RICE (Reach · Impact · Confidence · Effort)</strong> — Adds a Reach dimension, weighting each hypothesis by the number of users it would affect. This shifts the ranking toward changes that benefit larger segments, often revealing that high-confidence "quick wins" only impact a small portion of the user base.</p>
+      <p class="proj-p">Under ICE, hypotheses 8, 0, and 7 ranked highest. RICE reordered the list considerably, reflecting that some top ICE hypotheses would reach far fewer users than alternatives — making them less impactful at scale. The divergence between frameworks informed which hypothesis to prioritize for live testing.</p>
+    </div>
+
+    <!-- ── REVENUE & ORDER CHARTS ── -->
+    <div class="proj-section">
+      <div class="section-label">03 — Experiment Results</div>
+      <h2 class="proj-h2">Cumulative Revenue & Order Patterns</h2>
+      <p class="proj-p">With the highest-priority hypothesis selected, two user groups (A and B) were assigned different experiences and monitored throughout August. Several dimensions were tracked to build a complete picture of behavioral differences.</p>
+
+      <div class="chart-grid">
+        <div class="chart-card">
+          <img src="../../assets/chart-revenue.png" alt="Cumulative revenue by group over time" />
+          <div class="chart-cap">Fig. 1 — Cumulative revenue by group. Group B pulls ahead from approximately August 5th onward, with both groups briefly converging around August 13th before B extends its lead through the end of the test.</div>
+        </div>
+        <div class="chart-card">
+          <img src="../../assets/chart-order-size.png" alt="Average order size by group over time" />
+          <div class="chart-cap">Fig. 2 — Cumulative average order size per group. Both groups show instability in the first two weeks — typical during early traffic splits — before stabilizing in the second half of August.</div>
+        </div>
+      </div>
+
+      <div class="chart-grid" style="margin-top: 20px;">
+        <div class="chart-card">
+          <img src="../../assets/chart-rel-diff.png" alt="Relative difference in average order size B vs A" />
+          <div class="chart-cap">Fig. 3 — Relative difference in avg. order size (B vs A). Positive values indicate periods where Group B's average order exceeded Group A's. Group B was larger in the majority of the test period.</div>
+        </div>
+        <div class="chart-card">
+          <img src="../../assets/chart-conversion.png" alt="Daily conversion rate by group" />
+          <div class="chart-cap">Fig. 4 — Daily conversion rate per group. Group B shows more frequent upward spikes (12 peaks vs 11 for Group A), and its peaks tend to be higher in magnitude.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ANOMALY & SIGNIFICANCE ── -->
+    <div class="proj-section">
+      <div class="section-label">04 — Outlier Detection & Significance</div>
+      <h2 class="proj-h2">Anomaly Filtering & Statistical Tests</h2>
+      <p class="proj-p">Before running significance tests, the data was explored for outliers at the order level to avoid skewed results from anomalous users placing unusually high numbers of orders or paying extreme prices.</p>
+
+      <div class="chart-grid">
+        <div class="chart-card">
+          <img src="../../assets/chart-orders-scatter.png" alt="Orders per user scatter plot" />
+          <div class="chart-cap">Fig. 5 — Orders per user scatter. The vast majority cluster at 1 order per conversion. Outliers (2–4+ orders) exist but are rare, and extreme cases (4+ orders) are flagged as anomalous.</div>
+        </div>
+        <div class="chart-card">
+          <img src="../../assets/chart-prices.png" alt="Order price distribution" />
+          <div class="chart-cap">Fig. 6 — Order price distribution. Most orders fall between 200–400 units. High-price outliers above the 95th and 99th percentile thresholds were identified and handled during the filtering step.</div>
+        </div>
+      </div>
+
+      <p class="proj-p" style="margin-top: 28px;">Statistical significance was tested on both raw and filtered datasets using z-tests, testing for differences in (a) conversion rate and (b) average order size between groups.</p>
+
+      <div style="background: var(--bg2); border: 1px solid var(--border); padding: 28px 32px; margin-top: 20px; font-family: var(--mono); font-size: 12px;">
+        <div style="color: var(--acc); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 20px;">Statistical Test Summary</div>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; color: var(--text-muted); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; padding-bottom: 10px; border-bottom: 1px solid var(--border);">
+            <span>Metric</span><span>Dataset</span><span>Result</span><span>Significance</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; color: var(--text-dim);">
+            <span>Conversion rate</span><span>Raw data</span><span style="color:var(--text)">B > A</span><span style="color:#5c9e6e">Significant ✓</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; color: var(--text-dim);">
+            <span>Avg order size</span><span>Raw data</span><span style="color:var(--text)">A ≈ B</span><span style="color:var(--text-muted)">Not significant</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; color: var(--text-dim);">
+            <span>Conversion rate</span><span>Filtered</span><span style="color:var(--text)">B > A</span><span style="color:#5c9e6e">Significant ✓</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; color: var(--text-dim);">
+            <span>Avg order size</span><span>Filtered</span><span style="color:var(--text)">A ≈ B</span><span style="color:var(--text-muted)">Not significant</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CONCLUSION ── -->
+    <div class="proj-section">
+      <div class="section-label">05 — Conclusion</div>
+      <h2 class="proj-h2">Decision & Takeaways</h2>
+      <div class="conclusion-box">
+        <p class="conclusion-text">The analysis clearly establishes that <strong>Group B outperformed Group A in conversion rate</strong> — a finding that held consistent across both raw and filtered datasets. This result is statistically significant and can be attributed to the tested change, not random variation.</p>
+        <p class="conclusion-text" style="margin-top: 16px;">However, the <strong>average order size did not differ significantly</strong> between the two groups. This is a meaningful insight: the improvement driven by Group B's experience is in bringing more users to convert, not in increasing how much each converting user spends. Revenue growth, in this case, is a volume play — not a value-per-transaction play.</p>
+        <p class="conclusion-text" style="margin-top: 16px;"><strong>Business recommendation:</strong> Stop the test and roll out Group B's experience to all users. The conversion lift is real and statistically validated. Future experimentation should focus on increasing average order value — the dimension where neither group currently has an edge — through strategies like upselling, bundling, or minimum-order thresholds.</p>
+      </div>
+    </div>
+
+  </div><!-- /proj-body -->
+
+  <footer>
+    <span class="footer-txt">© <span id="yr"></span> Eduardo Schlufter</span>
+    <span class="footer-txt"><a href="../../#projects" style="color:var(--text-muted)">← Back to all projects</a></span>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
